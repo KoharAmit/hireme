@@ -20,6 +20,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+//use dotenv to read .env file with config vars
+if (process.env.Node_Env != 'production') {
+    require('dotenv').config()
+}
+
+
+//mongodb connection using mongoose
+
+const mongoose = require('mongoose');
+mongoose.connect(process.env.CONNECTION_STRING)
+    .then((res) => {
+        console.log('Connected to Mongo database')
+    })
+    .catch(() => {
+        console.log('Connection failed to Mongo database')
+    })
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
