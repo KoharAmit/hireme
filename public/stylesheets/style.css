@@ -13,8 +13,13 @@ main {
 
 .navbar-dark {
     background-color: #00A85C;
+    padding-left: 20px;
 }
 
 h1 {
     color: #737378;
+}
+
+.nav-link {
+    color: rgb(255, 255, 255);
 }

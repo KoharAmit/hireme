@@ -1,23 +1,45 @@
 const express = require('express');
 const router = express.Router();
 
+// add fs to read the data file
 const fs = require('fs');
 
-/** Get employers index(the module home page)  */
+/* GET employers index (the module home page) */
 router.get('/', (req, res) => {
-    //get data from json file
+
+    // const employers = [
+    //     {
+    //         "name": "Provix"
+    //     },
+    //     {
+    //         "name": "Element6"
+    //     },
+    //     {
+    //         "name": "Netgain"
+    //     },
+    //     {
+    //         "name": "44 North"
+    //     }
+    // ];
+    // res.render('employers/index', {
+    //     title: 'Employer List',
+    //     employers: employers
+    // });
+
+
+    // get data from json file
     fs.readFile('./data/employers.json', 'utf8', (err, employers) => {
         if (err) {
-            console.log(err)
+            console.log(err);
         } else {
+            console.log(employers);
             res.render('employers/index', {
-                title: 'Employers',
-                employers: employers
+                title: 'Employer List',
+                employers: JSON.parse(employers)
             });
-
         }
     });
+});
 
-})
-
+// make public
 module.exports = router;
