@@ -23,3 +23,12 @@ h1 {
 .nav-link {
     color: rgb(255, 255, 255);
 }
+
+fieldset {
+    border: none;
+    margin: 5px;
+}
+
+label {
+    width: 200px;
+}
