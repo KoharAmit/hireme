@@ -16,7 +16,8 @@ main {
     padding-left: 20px;
 }
 
-h1 {
+h1,
+i {
     color: #737378;
 }
 
@@ -31,4 +32,17 @@ fieldset {
 
 label {
     width: 200px;
+}
+
+thead {
+    color: #FFFFFF;
+    background-color: #737378;
+}
+
+i:hover {
+    color: #00B7FF;
+}
+
+#imgShowHide {
+    cursor: pointer;
 }
